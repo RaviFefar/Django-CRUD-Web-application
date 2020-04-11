@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <form method="POST" class="post-form" action="/create_stud" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Student Details</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Name:</label>
+                <div class="col-sm-4">
+                    {{ form.name }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Email:</label>
+                <div class="col-sm-4">
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Phone:</label>
+                <div class="col-sm-4">
+                    {{ form.number }}
+                </div>
+            </div>
+            <div class="form-group row">
+                 <label class="col-sm-2 col-form-label">Student Hobbis:</label>
+                    <div class="col-sm-4">
+                        {{ form.hobbies }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Gender:</label>
+                    <div class="col-sm-4">
+                        {{ form.gender }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Education:</label>
+                    <div class="col-sm-4">
+                        {{ form.education }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student image:</label>
+                    <div class="col-sm-4">
+                        {{ form.image }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Age:</label>
+                    <div class="col-sm-4">
+                        {{ form.age }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" />
+</body>
+</html>

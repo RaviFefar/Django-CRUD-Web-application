@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+        <form method="POST" class="post-form" action="/update_stud/{{id}}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <h3>Student Details</h3>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Name:</label>
+                <div class="col-sm-4">
+                     {{ stud.name }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Email:</label>
+                <div class="col-sm-4">
+                    {{ stud.email }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Phone:</label>
+                <div class="col-sm-4">
+                    {{ stud.number }}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                 <label class="col-sm-2 col-form-label">Student Hobbis:</label>
+                    <div class="col-sm-4">
+                        <label for="id_hobbies_0"><input type="checkbox" name="hobbies" {% if 'cricket' in stud.hobbies.value %}checked{% endif %} value="cricket" id="id_hobbies_0">Cricket</label>
+                        <label for="id_hobbies_1"><input type="checkbox" name="hobbies" {% if 'barchhi_fek' in stud.hobbies.value %}checked{% endif %} value="barchhi_fek" id="id_hobbies_1">Barchhi Fek</label><br>
+                        <label for="id_hobbies_2"><input type="checkbox" name="hobbies" {% if 'volleyball' in stud.hobbies.value %}checked{% endif %} value="volleyball" id="id_hobbies_2">Volleyball</label>
+                        <label for="id_hobbies_3"><input type="checkbox" name="hobbies" {% if 'basket_ball' in stud.hobbies.value %}checked{% endif %} value="basket_ball" id="id_hobbies_3">Basket Ball</label>
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Gender:</label>
+                    <div class="col-sm-4">
+                            {{ stud.gender }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Education:</label>
+                    <div class="col-sm-4">
+                            {{ stud.education }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Image:</label>
+                    <div class="col-sm-4">
+                            {{ stud.image }}
+                            {% if stud.image.value %}
+                                    <img src="/media/{{stud.image.value}}" class="img img-responsive" width="90px">
+                            {% endif %}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Student Age:</label>
+                    <div class="col-sm-4">
+                            {{ stud.age }}
+                    </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" />
+</body>
+</html>

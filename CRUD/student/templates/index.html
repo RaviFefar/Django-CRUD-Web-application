@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Student Records</title>
+            {% load static %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        </head>
+        <body>
+        <div class="container">
+            <div class="row">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+
+                            <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student Email</th>
+                <th>Student Mobile</th>
+                <th>Student Hobbies</th>
+                <th>Student Gender</th>
+                <th>Student Education</th>
+                <th>Student Image</th>
+                <th>Student Age</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for value in stud %}
+                <tr>
+                    <td>{{ value.name }}</td>
+                    <td>{{ value.email }}</td>
+                    <td>{{ value.number }}</td>
+                    <td>{{ value.hobbies }}</td>
+                    <td>{{ value.gender }}</td>
+                    <td>{{ value.education }}</td>
+                    <td>{% if value.image %}<img src="/media/{{ value.image }}" class="img img-responsive" width="100px">{% endif %}</td>
+                    <td>{{ value.age }}</td>
+                    <td>
+                        <a class="btn btn-success btn-sm" href="/update_stud/{{ value.id }}">  Edit</a>
+                        <a class="btn btn-danger btn-sm" onclick="return confirm('Do you really want to delete this item!')" href="/delete_stud/{{ value.id }}"> Delete</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr><td>No Record Found!</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <center><a href="/create_stud" class="btn btn-primary">Add New Record</a></center>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" />
+        </body>
+        </html>
